@@ -41,7 +41,18 @@ module.exports = function( grunt ) {
         }
       }
     },
-
+    // stylus 
+    stylus: {
+      compile: {
+        options: {
+          compress: true,
+          paths: ['node_modules/grunt-contrib-stylus/node_modules']
+        },
+        files: {
+          'app/styles/*.css': ['app/styles/src/*.styl']
+        }
+      }
+    },
     // compile .scss/.sass to .css using Compass
     compass: {
       dist: {
@@ -90,6 +101,12 @@ module.exports = function( grunt ) {
           'app/images/**/*'
         ],
         tasks: 'reload'
+      },
+      stylus: {
+        files: [
+          'app/styles/src/**/*.styl'
+        ],
+        tasks: 'stylus reload'
       }
     },
 
@@ -195,6 +212,9 @@ module.exports = function( grunt ) {
   grunt.registerTask('test', 'mocha');
   grunt.loadNpmTasks('grunt-ember-templates');
 
+  // Stylus tasks
+  grunt.loadNpmTasks('grunt-contrib-stylus');
+  grunt.registerTask('compass', ['stylus']);
   // Hack provided by @xMartin to force the inclusion of `ember_templates`
   // in the `clean` task. By adding it to `clean` we make sure it is called
   // whenever something new is started.
