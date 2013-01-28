@@ -1,11 +1,10 @@
 {
-  "author": "",
-  "name": "",
-  "version": "0.0.0",
-  "dependencies": {
-    "grunt-ember-templates": "~0.3.1"
-  },
+  "author": "Good at the Internet",
+  "name": "tracker",
+  "version": "0.0.1",
+  "dependencies": {},
   "devDependencies": {
-    "grunt-contrib-stylus": "~0.3.1"
+    "grunt-contrib-stylus": "~0.3.1",
+    "grunt-ember-templates": "~0.3.1"
   }
 }
