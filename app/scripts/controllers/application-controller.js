@@ -3,13 +3,13 @@ Tracker.ApplicationController = Ember.ArrayController.extend({
   init: function() {
     this._super();
     festivals = [
-      Tracker.Festival.create({name:"Interactive"}),
-      Tracker.Festival.create({name: "Film"})
+      Tracker.Festival.create({name:"Interactive", key: "interactive"}),
+      Tracker.Festival.create({name: "Film", key: "film"})
     ];
     this.set('content', Ember.A(festivals));
 
     window.testing = this;
   }
-  
+
 });
 

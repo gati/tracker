@@ -5,21 +5,22 @@ Tracker.Router = Em.Router.extend({
       router.transitionTo('home');
     },
     doFestival: function(router, event) {
-      festivalName = event.context.name;
-      router.transitionTo('festival', {name:festivalName.toLowerCase()});
+      router.transitionTo('festival', {key:event.context.key});
     },
     home: Ember.Route.extend({
       route: '/'
     }),
     festival: Ember.Route.extend({
-      route: '/festival/:name',
+      route: '/festival/:key',
       connectOutlets: function(router, context) {
-        //var festival = router.getPath('applicationController.content').objectAt(context.item_id);
+        var collection = router.getPath('applicationController.content');
+        var festival = collection.findProperty("key", context.key);
+        router.get('festivalController').set('content', festival);
         router.get('applicationController').connectOutlet('festival');
       }
     }),
     shuttleRoute: Ember.Route.extend({
-      route: '/shuttle-route/:name',
+      route: '/shuttle-route/:key',
       connectOutlets: function(router, event) {
         router.get('applicationController').connectOutlet('shuttleRoute');
       }

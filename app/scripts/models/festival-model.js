@@ -1,6 +1,4 @@
 Tracker.Festival = Ember.Object.extend({
-  name: null
+  name: null,
+  key: null
 });
-
-Tracker.Festival.create({name: "Interactive"});
-Tracker.Festival.create({name: "Film"});
