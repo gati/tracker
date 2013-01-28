@@ -1,0 +1,1 @@
+Tracker.FestivalController = Ember.ObjectController.extend();
