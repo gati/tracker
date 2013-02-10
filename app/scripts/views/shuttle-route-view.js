@@ -10,7 +10,7 @@ Tracker.ShuttleRouteView = Ember.View.extend({
   didInsertElement: function () {
     var content = this.get("controller.content");
     var mapOptions = {
-      center: new google.maps.LatLng(content.mapCenter.lat, content.mapCenter.lng),
+      center: new Tracker.maps.LatLng(content.mapCenter.lat, content.mapCenter.lng),
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       streetViewControl: false,
@@ -22,19 +22,20 @@ Tracker.ShuttleRouteView = Ember.View.extend({
       scaleControl: false,
       scrollwheel: false
     };
-    var streetMap = new google.maps.Map(this.$().get(0), mapOptions);
+    var streetMap = new Tracker.maps.Map(this.$().get(0), mapOptions);
     //this.set('streetMap', streetMap); //save for future updations
 
     this.setMapBindings(streetMap);
     this.setOverlay(content, streetMap);
+    this.setShuttleStops(content, streetMap);
   },
   setMapBindings: function(streetMap) {
-    google.maps.event.addListener(streetMap, "click", function (e) { 
+    Tracker.maps.addListener(streetMap, "click", function (e) { 
       console.log('lat:'+e.latLng.lat().toFixed(6));
       console.log('lng:'+e.latLng.lng().toFixed(6));
     });
   
-    google.maps.event.addListener(streetMap, 'zoom_changed', function() {
+    Tracker.maps.addListener(streetMap, 'zoom_changed', function() {
       var currentZoom = streetMap.getZoom();
       if(currentZoom !== 15) {
         streetMap.setZoom(15);
@@ -42,11 +43,30 @@ Tracker.ShuttleRouteView = Ember.View.extend({
     });
   },
   setOverlay: function(content, streetMap) {
-    var swBound = new google.maps.LatLng(content.overlayBounds.sw.lat, content.overlayBounds.sw.lng);
-    var neBound = new google.maps.LatLng(content.overlayBounds.ne.lat, content.overlayBounds.ne.lng);
-    var bounds = new google.maps.LatLngBounds(swBound, neBound);
+    var swBound = new Tracker.maps.LatLng(content.overlayBounds.sw.lat, content.overlayBounds.sw.lng);
+    var neBound = new Tracker.maps.LatLng(content.overlayBounds.ne.lat, content.overlayBounds.ne.lng);
+    var bounds = new Tracker.maps.LatLngBounds(swBound, neBound);
 
     var srcImage = "images/overlays/" + content.image;
-    var overlay = new Tracker.helpers.mapOverlay(bounds, srcImage, streetMap);
+    var overlay = new Tracker.maps.mapOverlay(bounds, srcImage, streetMap);
+  },
+  setShuttleStops: function(content, streetMap) {
+    content.shuttleStops.forEach(function(shuttleStop) {
+      var coordinates = shuttleStop.get("location");
+      var position = new Tracker.maps.LatLng(coordinates.lat, coordinates.lng);
+      var marker = new Tracker.maps.Marker({
+        position: position,
+        zIndex: 1000,
+        map: streetMap,
+        icon: "images/transparent-map-icon.png"
+      });
+
+      var infoWindow = new Tracker.maps.InfoWindow;
+
+      Tracker.maps.addListener(marker, "click", function() {
+        infoWindow.setContent(shuttleStop.get("name"));
+        infoWindow.open(streetMap, marker);
+      });
+    });
   }
 });
