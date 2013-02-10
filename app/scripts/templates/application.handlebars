@@ -1,8 +1,8 @@
 <h1>SXSW Shuttle Tracker</h1>
 
 <nav>
-  {{#each festival in content}}
-    <a {{action doFestival festival}}>{{festival.name}}</a>
+  {{#each section in content}}
+    <a {{action doSection section}}>{{section.name}}</a>
   {{/each}}
 </nav>
 
