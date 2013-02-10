@@ -3,12 +3,6 @@ Tracker.Section = Ember.Object.extend({
   key: null
 });
 
-(function() {
-  var arr = Tracker.bootstrap.sections;
-
-  Tracker.store.sections = Ember.A();
-
-  for(var i=0;i<arr.length;i++) {
-    Tracker.store.sections.pushObject(Tracker.Section.create(arr[i]));
-  }
-})();
+Tracker.store.sections = Tracker.bootstrap.sections.map(function(section) {
+  return Tracker.Section.create(section);
+});

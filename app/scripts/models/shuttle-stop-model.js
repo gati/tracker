@@ -3,12 +3,6 @@ Tracker.ShuttleStop = Ember.Object.extend({
   key: null
 });
 
-(function() {
-  var arr = Tracker.bootstrap.stops;
-
-  Tracker.store.shuttleStops = Ember.A();
-
-  for(var i=0;i<arr.length;i++) {
-    Tracker.store.shuttleStops.pushObject(Tracker.ShuttleStop.create(arr[i]));
-  }
-})();
+Tracker.store.shuttleStops = Tracker.bootstrap.shuttles.map(function(stop) {
+  return Tracker.ShuttleStop.create(stop);
+});
