@@ -9,6 +9,7 @@ Tracker.maps = (function(exports) {
   exports.LatLng = maps.LatLng;
   exports.LatLngBounds = maps.LatLngBounds;
   exports.Marker = maps.Marker;
+  exports.HTMLMarker = RichMarker;
   exports.InfoWindow = maps.InfoWindow;
 
   return exports;

@@ -13,7 +13,7 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
     var mapOptions = {
       center: new Tracker.maps.LatLng(content.mapCenter.lat, 
         content.mapCenter.lng),
-      zoom: 12,
+      zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       streetViewControl: false,
       draggable: true,
@@ -86,38 +86,3 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
     });
   }
 });
-
-/*
-  m.addMarker = function(eventData) {
-    var position = new google.maps.LatLng(eventData.GPSPoint_lat, 
-      eventData.GPSPoint_lon);
-    var currentLocation = config.locations[m.location];
-    //console.log(eventData);
-    //console.log(position);
-    
-    if(markers[eventData.Device]) {
-      markers[eventData.Device].setPosition(position);
-    }
-    else {
-      // using RichMarker (credit: http://code.google.com/p/google-maps-utility-library-v3/) because
-      // we need control over the markup/zindex of containing elements in relation to the overlay
-      markers[eventData.Device] = new RichMarker({
-            position: position,
-            map: shuttleMap,
-            content: '<div style="display:none;" class="markerContainer"><img src="' + config.baseImagePath + 'darkbus.png"/></div>'
-        });
-    }
-    
-    // Now force all markers to appear "above" the overlay. 
-      function fixMarkers() {
-        var markerContainer = $('.markerContainer'),
-          markerParent = markerContainer.parent();
-        markerParent.css({position:'relative',zIndex:1000});
-        markerParent.parent().css({position:'relative',zIndex:1000});
-        markerContainer.css({position:'absolute',zIndex:1000, display:'block'});
-      }
-      
-      fixMarkers();
-    
-  };
-  */

@@ -11,20 +11,3 @@ Tracker.settings = {
 
 // Flat object where other components can stick models. Not Ember-Data/DS
 Tracker.store = {};
-
-// Listen for shuttle position change events
-Tracker.ready = function() {
-  Tracker.push.start(Tracker.settings.pusher);
-  Tracker.push.bindEvent("sxsw", "shuttle:location", function(data) {
-    
-    data.forEach(function(item) {
-      if(!item) return;
-      
-      var shuttleBus = Tracker.store.shuttleBusses.findProperty("deviceId", item.device_id);
-      if(shuttleBus) {
-        shuttleBus.set("currentPosition", item);
-      }
-    });
-
-  });
-};

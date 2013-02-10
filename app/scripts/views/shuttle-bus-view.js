@@ -16,15 +16,29 @@ Tracker.ShuttleBusView = Ember.View.extend({
     var streetMap = this.get("streetMap");
     var position = this.currentShuttleBusPosition();
 
-    this.set("marker", new Tracker.maps.Marker({
+    this.set("marker", new Tracker.maps.HTMLMarker({
         position: position,
-        map: streetMap
+        map: streetMap,
+        content: '<div class="markerContainer"><img src="images/markers/darkbus.png"/></div>',
+        shadow: "images/transparent-map-icon.png"
       })
     );
+
+    //this.forceMarkerVisible();
   },
   repositionMarket: function() {
     var marker = this.get("marker");
     var position = this.currentShuttleBusPosition();
+    console.log("setting position");
     marker.setPosition(position);
-  }.observes("currentPosition")
+    //this.forceMarkerVisible();
+  }.observes("currentPosition"),
+  forceMarkerVisible: function() {
+    var markerContainer = $('.markerContainer');
+    var markerParent = markerContainer.parent();
+
+    markerParent.css({position:'relative',zIndex:1000});
+    markerParent.parent().css({position:'relative',zIndex:1000});
+    markerContainer.css({position:'absolute',zIndex:1000, display:'block'});
+  }
 });
