@@ -71,7 +71,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.263373',
         lng: '-97.739911'
       },
-      title: 'Austin Convention Center'
+      name: 'Austin Convention Center'
     },
     {
       key: 'omnin',
@@ -79,7 +79,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.269526',
         lng: '-97.740726'
       },
-      title: 'Omni Northbound',
+      name: 'Omni Northbound',
       description: 'Access to: Driskill, SFA InterContinental'
     },
     {
@@ -88,7 +88,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.281311',
         lng: '-97.740426'
       },
-      title: 'AT&T Conference Center',
+      name: 'AT&T Conference Center',
       markerIcon: 'att_busasset_163ppi-01.png'
     },
     {
@@ -97,7 +97,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.269155',
         lng: '-97.739567'
       },
-      title: 'Omni Southbound'
+      name: 'Omni Southbound'
     },
     {
       key: 'hilton',
@@ -105,7 +105,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.265374',
         lng: '-97.741026'
       },
-      title: 'Hilton Downtown/ Courtyard Marriott',
+      name: 'Hilton Downtown/ Courtyard Marriott',
       description: 'Access to: Hilton Garden Inn, Palm Park'
     },  
     {
@@ -114,7 +114,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.253625',
         lng: '-97.737143'
       },
-      title: 'Holiday Inn',
+      name: 'Holiday Inn',
       markerIcon: 'holidayinn_busasset_163ppi-01.png'
     },  
     {
@@ -123,7 +123,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.258739',
         lng: '-97.747335'
       },
-      title: 'Hyatt',
+      name: 'Hyatt',
       markerIcon: 'hyatt_busasset_163ppi-01.png'
     },
     {
@@ -132,7 +132,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.259369',
         lng: '-97.753987'
       },
-      title: 'Palmer'
+      name: 'Palmer'
     },  
     {
       key: "sheraton",
@@ -140,7 +140,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.270971',
         lng: '-97.734717'
       },
-      title: 'Sheraton',
+      name: 'Sheraton',
       markerIcon: 'sheraton_busasset_163ppi-01.png'
     }
   ];

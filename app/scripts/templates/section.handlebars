@@ -1,1 +1,6 @@
 <p>{{name}} is so awesome</p>
+<nav>
+  {{#each shuttleRoute in shuttleRoutes}}
+  <a {{action doShuttleRoute shuttleRoute}}>{{shuttleRoute.destination.name}}</a>
+  {{/each}}
+</nav>
