@@ -1,8 +1,9 @@
-Tracker.ShuttleRouteView = Ember.View.extend({
+Tracker.ShuttleRouteView = Ember.ContainerView.extend({
   templateName: 'shuttle-route',
   streetMap: null,
+  shuttleBusses: [],
   willInsertElement: function() {
-    this.$().css({ width: "400px", height: "400px" });
+    this.$().css({ width: "100%", height: "800px" });
   },
   willDestroyElement: function() {
     // remove gmap event bindings
@@ -10,8 +11,9 @@ Tracker.ShuttleRouteView = Ember.View.extend({
   didInsertElement: function () {
     var content = this.get("controller.content");
     var mapOptions = {
-      center: new Tracker.maps.LatLng(content.mapCenter.lat, content.mapCenter.lng),
-      zoom: 15,
+      center: new Tracker.maps.LatLng(content.mapCenter.lat, 
+        content.mapCenter.lng),
+      zoom: 12,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       streetViewControl: false,
       draggable: true,
@@ -28,6 +30,7 @@ Tracker.ShuttleRouteView = Ember.View.extend({
     this.setMapBindings(streetMap);
     this.setOverlay(content, streetMap);
     this.setShuttleStops(content, streetMap);
+    this.setShuttleBusses(content, streetMap);
   },
   setMapBindings: function(streetMap) {
     Tracker.maps.addListener(streetMap, "click", function (e) { 
@@ -43,8 +46,10 @@ Tracker.ShuttleRouteView = Ember.View.extend({
     });
   },
   setOverlay: function(content, streetMap) {
-    var swBound = new Tracker.maps.LatLng(content.overlayBounds.sw.lat, content.overlayBounds.sw.lng);
-    var neBound = new Tracker.maps.LatLng(content.overlayBounds.ne.lat, content.overlayBounds.ne.lng);
+    var swBound = new Tracker.maps.LatLng(content.overlayBounds.sw.lat, 
+      content.overlayBounds.sw.lng);
+    var neBound = new Tracker.maps.LatLng(content.overlayBounds.ne.lat, 
+      content.overlayBounds.ne.lng);
     var bounds = new Tracker.maps.LatLngBounds(swBound, neBound);
 
     var srcImage = "images/overlays/" + content.image;
@@ -68,5 +73,51 @@ Tracker.ShuttleRouteView = Ember.View.extend({
         infoWindow.open(streetMap, marker);
       });
     });
+  },
+  setShuttleBusses: function(content, streetMap) {
+    var childViews = this.get("childViews");
+    content.shuttleBusses.forEach(function(shuttleBus) {
+      var shuttleBusView = Tracker.ShuttleBusView.create();
+      shuttleBusView.setProperties({
+        shuttleBus: shuttleBus,
+        streetMap: streetMap
+      });
+      childViews.pushObject(shuttleBusView);
+    });
   }
 });
+
+/*
+  m.addMarker = function(eventData) {
+    var position = new google.maps.LatLng(eventData.GPSPoint_lat, 
+      eventData.GPSPoint_lon);
+    var currentLocation = config.locations[m.location];
+    //console.log(eventData);
+    //console.log(position);
+    
+    if(markers[eventData.Device]) {
+      markers[eventData.Device].setPosition(position);
+    }
+    else {
+      // using RichMarker (credit: http://code.google.com/p/google-maps-utility-library-v3/) because
+      // we need control over the markup/zindex of containing elements in relation to the overlay
+      markers[eventData.Device] = new RichMarker({
+            position: position,
+            map: shuttleMap,
+            content: '<div style="display:none;" class="markerContainer"><img src="' + config.baseImagePath + 'darkbus.png"/></div>'
+        });
+    }
+    
+    // Now force all markers to appear "above" the overlay. 
+      function fixMarkers() {
+        var markerContainer = $('.markerContainer'),
+          markerParent = markerContainer.parent();
+        markerParent.css({position:'relative',zIndex:1000});
+        markerParent.parent().css({position:'relative',zIndex:1000});
+        markerContainer.css({position:'absolute',zIndex:1000, display:'block'});
+      }
+      
+      fixMarkers();
+    
+  };
+  */

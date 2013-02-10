@@ -18,9 +18,6 @@ Tracker.push = (function(exports) {
     if(!channels[channel] || !evt || !callback) {
       return false;
     }
-
-    console.log("binding "+channel+" : "+evt);
-
     channels[channel].bind(evt, callback);
   };
 

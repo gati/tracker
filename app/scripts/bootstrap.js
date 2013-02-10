@@ -15,25 +15,53 @@ Tracker.bootstrap = (function(exports) {
 
   exports.shuttles = [
     {
-      deviceId: "26645092"
+      deviceId: "26645092",
+      currentPosition: {
+        lat: 30.263373,
+        lng: -97.739911
+      }
     },
     {
-      deviceId: "26645100"
+      deviceId: "26645100",
+      currentPosition: {
+        lat: 30.263373,
+        lng: -97.739911
+      }
     },
     {
-      deviceId: '26905231'
+      deviceId: '26905231',
+      currentPosition: {
+        lat: 30.263373,
+        lng: -97.739911
+      }
     },
     {
-      deviceId: '26905249'
+      deviceId: '26905249',
+      currentPosition: {
+        lat: 30.263373,
+        lng: -97.739911
+      }
     },
     {
-      deviceId: '26905298'
+      deviceId: '26905298',
+      currentPosition: {
+        lat: 30.263373,
+        lng: -97.739911
+      }
     },
     {
-      deviceId: '26645084'
+      deviceId: '26645084',
+      currentPosition: {
+        lat: 30.263373,
+        lng: -97.739911
+      }
     },
     {
-      deviceId: '26645118'
+      deviceId: '26645118',
+      currentPosition: {
+        lat: 30.263373,
+        lng: -97.739911
+      }
     },
     {
       deviceId: '26905223'
