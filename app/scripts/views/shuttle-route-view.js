@@ -4,6 +4,9 @@ Tracker.ShuttleRouteView = Ember.View.extend({
   willInsertElement: function() {
     this.$().css({ width: "400px", height: "400px" });
   },
+  willDestroyElement: function() {
+    // remove gmap event bindings
+  },
   didInsertElement: function () {
     var content = this.get("controller.content");
     var mapOptions = {
@@ -20,9 +23,10 @@ Tracker.ShuttleRouteView = Ember.View.extend({
       scrollwheel: false
     };
     var streetMap = new google.maps.Map(this.$().get(0), mapOptions);
-    this.set('streetMap', streetMap); //save for future updations
+    //this.set('streetMap', streetMap); //save for future updations
 
     this.setMapBindings(streetMap);
+    this.setOverlay(content, streetMap);
   },
   setMapBindings: function(streetMap) {
     google.maps.event.addListener(streetMap, "click", function (e) { 
@@ -37,7 +41,12 @@ Tracker.ShuttleRouteView = Ember.View.extend({
       }
     });
   },
-  willDestroyElement: function() {
-    // remove gmap event bindings
+  setOverlay: function(content, streetMap) {
+    var swBound = new google.maps.LatLng(content.overlayBounds.sw.lat, content.overlayBounds.sw.lng);
+    var neBound = new google.maps.LatLng(content.overlayBounds.ne.lat, content.overlayBounds.ne.lng);
+    var bounds = new google.maps.LatLngBounds(swBound, neBound);
+
+    var srcImage = "images/overlays/" + content.image;
+    var overlay = new Tracker.helpers.mapOverlay(bounds, srcImage, streetMap);
   }
 });

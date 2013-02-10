@@ -88,8 +88,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.281311',
         lng: '-97.740426'
       },
-      name: 'AT&T Conference Center',
-      markerIcon: 'att_busasset_163ppi-01.png'
+      name: 'AT&T Conference Center'
     },
     {
       key: 'omnis',
@@ -114,8 +113,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.253625',
         lng: '-97.737143'
       },
-      name: 'Holiday Inn',
-      markerIcon: 'holidayinn_busasset_163ppi-01.png'
+      name: 'Holiday Inn'
     },  
     {
       key: "hyatt",
@@ -123,8 +121,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.258739',
         lng: '-97.747335'
       },
-      name: 'Hyatt',
-      markerIcon: 'hyatt_busasset_163ppi-01.png'
+      name: 'Hyatt'
     },
     {
       key: "palmer",
@@ -140,8 +137,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.270971',
         lng: '-97.734717'
       },
-      name: 'Sheraton',
-      markerIcon: 'sheraton_busasset_163ppi-01.png'
+      name: 'Sheraton'
     }
   ];
 
@@ -149,7 +145,8 @@ Tracker.bootstrap = (function(exports) {
     {
       key: "att",
       locationKey: "att",
-      image: 'maps/att-route-retry.png',
+      image: 'att-route-retry.png',
+      markerIcon: 'att_busasset_163ppi-01.png',
       mapCenter: {
         lat:30.274455,
         lng:-97.740254
@@ -169,7 +166,8 @@ Tracker.bootstrap = (function(exports) {
     },
     {
       key: "hyatt",
-      image: 'maps/hyattpalmer-route.png',
+      image: 'hyattpalmer-route.png',
+      markerIcon: 'hyatt_busasset_163ppi-01.png',
       locationKey: "hyatt", 
       mapCenter: {
         lat:30.256997,
@@ -190,7 +188,8 @@ Tracker.bootstrap = (function(exports) {
     },
     {
       key: "holiday",
-      image: 'maps/holidayinn-route.png',
+      image: 'holidayinn-route.png',
+      markerIcon: 'holidayinn_busasset_163ppi-01.png',
       locationKey: "holiday",
       mapCenter: {
         lat:30.255997,
@@ -211,7 +210,8 @@ Tracker.bootstrap = (function(exports) {
     },
     {
       key: "sheraton",
-      image: 'maps/sheraton-route.png',
+      image: 'sheraton-route.png',
+      markerIcon: 'sheraton_busasset_163ppi-01.png',
       locationKey: "sheraton",
       mapCenter: {
         lat:30.264485,
