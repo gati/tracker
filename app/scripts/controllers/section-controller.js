@@ -1,3 +1,1 @@
-Tracker.SectionController = Ember.ObjectController.extend({
-  
-});
+Tracker.SectionController = Ember.ObjectController.extend();

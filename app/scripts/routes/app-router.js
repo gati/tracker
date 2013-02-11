@@ -8,36 +8,57 @@ Tracker.Router = Em.Router.extend({
       router.transitionTo('section', {key:event.context.key});
     },
     doShuttleRoute: function(router, event) {
-      router.transitionTo('shuttleRoute', event.context);
+      router.transitionTo('shuttleRoute', {key:event.context.key});
     },
-    home: Ember.Route.extend({
-      route: '/'
-    }),
-    section: Ember.Route.extend({
-      route: '/section/:key',
-      connectOutlets: function(router, context) {
-        var collection = router.getPath('applicationController.content');
-        var section = collection.findProperty("key", context.key);
+    doInfoRoute: function(router, event) {
+      router.transitionTo('infoRoute');
+    },
+    index: Ember.Route.extend({
+      route: "/",
+      connectOutlets: function(router) {
+        router.get('applicationController').connectOutlet('header', 'header');
+      },
+      home: Ember.Route.extend({
+        route: '/',
+        connectOutlets: function(router) {
+          Tracker.store.application.set("title", "SXSW Shuttle Tracker");
+          router.get('applicationController').connectOutlet('home');
+        }
+      }),
+      section: Ember.Route.extend({
+        route: '/section/:key',
+        connectOutlets: function(router, context) {
+          var collection = router.getPath('homeController.content');
+          var section = collection.findProperty("key", context.key);
 
-        // An instance of every controller is made available
-        // as a property of the router when the application loads. So the
-        // app is aware of the SectionController, and therefore it has a 
-        // "festivalController" property where an instance of SectionController can
-        // be accessed.
-        router.get('sectionController').set('content', section);
-        
-        // connects the "outlet" of applicationController to the "section"
-        // controller. It looks like connecting "section" gives you the 
-        // "stuff called section" - namely SectionController and SectionView.
-        router.get('applicationController').connectOutlet('section');
-      }
-    }),
-    shuttleRoute: Ember.Route.extend({
-      route: '/shuttle-route/:key',
-      connectOutlets: function(router, context) {
-        router.get('shuttleRouteController').set('content', context);
-        router.get('applicationController').connectOutlet('shuttleRoute');
-      }
+          Tracker.store.application.set("showBack", true);
+          Tracker.store.application.set("title", "Where are you?");
+
+          router.get('sectionController').set('content', section);
+          router.get('applicationController').connectOutlet('section');
+        }
+      }),
+      shuttleRoute: Ember.Route.extend({
+        route: '/shuttle-route/:key',
+        connectOutlets: function(router, context) {
+          var collection = Tracker.store.shuttleRoutes;
+          var shuttleRoute = collection.findProperty("key", context.key);
+          var destination = shuttleRoute.get("destination");
+          
+          Tracker.store.application.set("showBack", true);
+          Tracker.store.application.set("title", destination.get("name"));
+
+          router.get('shuttleRouteController').set('content', shuttleRoute);
+          router.get('applicationController').connectOutlet('shuttleRoute');
+        }
+      }),
+      infoRoute: Ember.Route.extend({
+        route: '/walking',
+        connectOutlets: function(router, context) {
+          router.get('applicationController').connectOutlet('infoRoute');
+        }
+      })
+
     })
   })
 });

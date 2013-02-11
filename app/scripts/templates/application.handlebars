@@ -1,9 +1,4 @@
-<h1>SXSW Shuttle Tracker</h1>
-
-<nav>
-  {{#each section in content}}
-    <a {{action doSection section}}>{{section.name}}</a>
-  {{/each}}
-</nav>
-
-{{outlet}}
+{{outlet header}}
+<div class="content">
+  {{outlet}}
+</div>

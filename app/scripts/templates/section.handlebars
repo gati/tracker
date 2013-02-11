@@ -1,6 +1,13 @@
-<p>{{name}} is so awesome</p>
-<nav>
+<nav class="table-view">
   {{#each shuttleRoute in shuttleRoutes}}
-  <a {{action doShuttleRoute shuttleRoute}}>{{shuttleRoute.destination.name}}</a>
+  <a class="has-children {{unbound shuttleRoute.key}}" {{action doShuttleRoute shuttleRoute}}>
+    {{shuttleRoute.destination.name}}
+  </a>
   {{/each}}
+</nav>
+
+<nav class="table-view">
+  <a {{action doInfoRoute}} class="has-children">
+    Hilton, Hilton Garden Inn, Palm Door or Palm Park
+  </a>
 </nav>

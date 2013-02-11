@@ -4,8 +4,6 @@ Tracker.ShuttleBus = Ember.Object.extend({
     // Siberia, where we presumably will never have a shuttle
     lat: 60,
     lng: 150
-    //lat: 30.263373,
-    //lng: -97.739911
   }
 });
 
