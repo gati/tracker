@@ -1,0 +1,15 @@
+<nav class="table-view">
+  {{#each shuttleRoute in shuttleRoutes}}
+  <a class="has-children {{unbound shuttleRoute.key}}" {{action doShuttleRoute shuttleRoute}}>
+    {{shuttleRoute.destination.name}}
+  </a>
+  {{/each}}
+</nav>
+
+{{#if hasWalkable}}
+<nav class="table-view">
+  <a {{action doInfoRoute}} class="has-children">
+    Hilton, Hilton Garden Inn, Palm Door or Palm Park
+  </a>
+</nav>
+{{/if}}

@@ -55,7 +55,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.281311',
         lng: '-97.740426'
       },
-      name: 'ATT Conference Ctr'
+      name: 'ATT Conference Center'
     },
     {
       key: 'omnis',

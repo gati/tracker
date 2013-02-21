@@ -1,0 +1,5 @@
+<nav class="logo-nav">
+  {{#each section in content}}
+    <a class="{{unbound section.key}}" {{action doSection section}}>{{section.name}}</a>
+  {{/each}}
+</nav>

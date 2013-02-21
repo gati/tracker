@@ -1,0 +1,1 @@
+Tracker.ShuttleRouteController = Ember.ObjectController.extend();
