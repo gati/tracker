@@ -3,7 +3,7 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
   streetMap: null,
   shuttleBusses: [],
   willInsertElement: function() {
-    this.$().css({ width: "100%", height: "800px" });
+    this.$().css({ width: "100%", height: $(window).height() + "px" });
   },
   willDestroyElement: function() {
     // remove gmap event bindings

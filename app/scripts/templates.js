@@ -20,7 +20,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   
 
 
-  data.buffer.push("<a class=\"header-btn-left black\">\n  <span></span>Back\n</a>");
+  data.buffer.push("<span></span>Back");
 });
 
 Ember.TEMPLATES["header"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
@@ -28,15 +28,14 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   var buffer = '', stack1, hashTypes, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<header class=\"banner show-back\">\n  ");
   stack1 = {};
   hashTypes = {};
   stack1 = helpers.view.call(depth0, "Tracker.BackButtonView", {hash:stack1,contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
-  data.buffer.push(escapeExpression(stack1) + "\n  <h3>");
+  data.buffer.push(escapeExpression(stack1) + "\n<h3>");
   stack1 = {};
   hashTypes = {};
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:stack1,contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
-  data.buffer.push(escapeExpression(stack1) + "</h3>\n</header>");
+  data.buffer.push(escapeExpression(stack1) + "</h3>\n");
   return buffer;
 });
 
@@ -101,16 +100,26 @@ function program1(depth0,data) {
   data.buffer.push(escapeExpression(stack1) + "\n  </a>\n  ");
   return buffer;}
 
+function program3(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes;
+  data.buffer.push("\n<nav class=\"table-view\">\n  <a ");
+  stack1 = {};
+  hashTypes = {};
+  stack1 = helpers.action.call(depth0, "doInfoRoute", {hash:stack1,contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  data.buffer.push(escapeExpression(stack1) + " class=\"has-children\">\n    Hilton, Hilton Garden Inn, Palm Door or Palm Park\n  </a>\n</nav>\n");
+  return buffer;}
+
   data.buffer.push("<nav class=\"table-view\">\n  ");
   stack1 = {};
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "shuttleRoute", "in", "shuttleRoutes", {hash:stack1,inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n</nav>\n\n<nav class=\"table-view\">\n  <a ");
+  data.buffer.push("\n</nav>\n\n");
   stack1 = {};
   hashTypes = {};
-  stack1 = helpers.action.call(depth0, "doInfoRoute", {hash:stack1,contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
-  data.buffer.push(escapeExpression(stack1) + " class=\"has-children\">\n    Hilton, Hilton Garden Inn, Palm Door or Palm Park\n  </a>\n</nav>");
+  stack1 = helpers['if'].call(depth0, "hasWalkable", {hash:stack1,inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   return buffer;
 });
 

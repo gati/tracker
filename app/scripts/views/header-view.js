@@ -1,3 +1,5 @@
 Tracker.HeaderView = Ember.View.extend({
-  templateName: "header"
+  templateName: "header",
+  tagName: "header",
+  classNames: ["banner", "show-back"]
 });

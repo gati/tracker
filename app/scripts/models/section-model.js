@@ -12,6 +12,7 @@ Tracker.store.sections = Tracker.bootstrap.sections.map(function(section) {
   });
 
   trackerSection.set("shuttleRoutes", shuttleRoutes);
+  trackerSection.set("hasWalkable", (trackerSection.get("name") === "Interactive"))
 
   return trackerSection;
 });
