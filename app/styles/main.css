@@ -94,8 +94,8 @@ html{overflow-y:scroll;font-size:62.5%;background-color:#ccc;background-image:-w
 .header-btn-right.plus -webkit-border-radius args -moz-border-radius args -ms-border-radius args -o-border-radius args{border-radius:8px}
 .content{font-family:Helvetica,Arial,sans-serif}
 .primary-content{padding:20px;line-height:22px}
-.logo-nav{margin:0 auto;width:300px;margin-top:20px;}
-.logo-nav a{display:block;height:175px;width:300px;text-indent:-999px;}
+.logo-nav{margin:0 auto;width:300px;margin-top:10px;}
+.logo-nav a{display:block;height:160px;width:300px;text-indent:-999px;}
 .logo-nav a.interactive{background:url("http://sxsw.com/sites/all/themes/sxsw-2013/imgs/logo-interactive.png") no-repeat;background-size:300px}
 .logo-nav a.film{background:url("http://sxsw.com/sites/all/themes/sxsw-2013/imgs/logo-film.png") no-repeat;background-size:300px}
 .table-view{border:1px solid #bbb;background:#fff;padding:0;margin:15px 0 0;list-style:none}
