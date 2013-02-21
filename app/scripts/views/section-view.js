@@ -1,3 +1,6 @@
 Tracker.SectionView = Ember.View.extend({
-  templateName: 'section'
+  templateName: 'section',
+  didInsertElement: function() {
+    $('a').click(function() { return; });
+  }
 });

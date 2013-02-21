@@ -15,6 +15,7 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
         content.mapCenter.lng),
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI:true,
       streetViewControl: false,
       draggable: true,
       navigationControl: false,
@@ -31,6 +32,9 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
     this.setOverlay(content, streetMap);
     this.setShuttleStops(content, streetMap);
     this.setShuttleBusses(content, streetMap);
+
+    $('a').click(function() { return; });
+    
   },
   setMapBindings: function(streetMap) {
     Tracker.maps.addListener(streetMap, "click", function (e) { 
@@ -52,7 +56,7 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
       content.overlayBounds.ne.lng);
     var bounds = new Tracker.maps.LatLngBounds(swBound, neBound);
 
-    var srcImage = "images/overlays/" + content.image;
+    var srcImage = "/images/overlays/" + content.image;
     var overlay = new Tracker.maps.mapOverlay(bounds, srcImage, streetMap);
   },
   setShuttleStops: function(content, streetMap) {

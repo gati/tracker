@@ -21,7 +21,7 @@ Tracker.Router = Em.Router.extend({
       home: Ember.Route.extend({
         route: '/',
         connectOutlets: function(router) {
-          Tracker.store.application.set("title", "SXSW Shuttle Tracker");
+          Tracker.store.application.set("title", "Shuttle Tracker");
           Tracker.store.application.set("showBack", false);
           router.get('applicationController').connectOutlet('home');
         }

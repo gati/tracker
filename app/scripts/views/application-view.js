@@ -1,3 +1,6 @@
 Tracker.ApplicationView = Ember.View.extend({
-  templateName: 'application'
+  templateName: 'application',
+  didInsertElement: function() {
+    $('a').click(function() { return; });
+  }
 });

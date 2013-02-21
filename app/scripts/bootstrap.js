@@ -123,8 +123,8 @@ Tracker.bootstrap = (function(exports) {
       image: 'att-route-2013.png',
       markerIcon: 'att_busasset_163ppi-01.png',
       mapCenter: {
-        lat:30.272559,
-        lng:-97.741199
+        lat:30.275079,
+        lng:-97.739997
       },
       overlayBounds: {
         sw: {
@@ -145,8 +145,8 @@ Tracker.bootstrap = (function(exports) {
       markerIcon: 'hyatt_busasset_163ppi-01.png',
       locationKey: "hyatt", 
       mapCenter: {
-        lat:30.259215,
-        lng:-97.746348
+        lat:30.261588,
+        lng:-97.746649
       },
       overlayBounds: {
         sw: {
@@ -191,8 +191,8 @@ Tracker.bootstrap = (function(exports) {
       markerIcon: 'sheraton_busasset_163ppi-01.png',
       locationKey: "sheraton",
       mapCenter: {
-        lat:30.264485,
-        lng:-97.737893
+        lat:30.266110,
+        lng:-97.739654
       },
       overlayBounds: {
         sw: {
@@ -214,8 +214,8 @@ Tracker.bootstrap = (function(exports) {
       markerIcon: 'sheraton_busasset_163ppi-01.png',
       locationKey: "film",
       mapCenter: {
-        lat:30.265072,
-        lng:-97.748537
+        lat:30.264887,
+        lng:-97.746649
       },
       overlayBounds: {
         sw: {
@@ -237,8 +237,8 @@ Tracker.bootstrap = (function(exports) {
       markerIcon: 'sheraton_busasset_163ppi-01.png',
       locationKey: "film",
       mapCenter: {
-        lat:30.265072,
-        lng:-97.748537
+        lat:30.264887,
+        lng:-97.746649
       },
       overlayBounds: {
         sw: {
