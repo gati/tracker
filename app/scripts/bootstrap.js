@@ -4,7 +4,7 @@ Tracker.bootstrap = (function(exports) {
     {
       name:"Interactive", 
       key: "interactive",
-      routes: ["att", "hyatt", "holiday", "sheraton"]
+      routes: ["att", "hyatt", "sheraton"]
     },
     {
       name: "Film", 
@@ -123,8 +123,8 @@ Tracker.bootstrap = (function(exports) {
       image: 'att-route-2013.png',
       markerIcon: 'att_busasset_163ppi-01.png',
       mapCenter: {
-        lat:30.274455,
-        lng:-97.740254
+        lat:30.272559,
+        lng:-97.741199
       },
       overlayBounds: {
         sw: {
@@ -145,8 +145,8 @@ Tracker.bootstrap = (function(exports) {
       markerIcon: 'hyatt_busasset_163ppi-01.png',
       locationKey: "hyatt", 
       mapCenter: {
-        lat:30.256997,
-        lng:-97.751412
+        lat:30.259215,
+        lng:-97.746348
       },
       overlayBounds: {
         sw: {
@@ -161,7 +161,7 @@ Tracker.bootstrap = (function(exports) {
       stops: ["acc", "hyatt", "palmer"],
       shuttles: ['867844000384928']
     },
-    {
+    /*{
       key: "holiday",
       image: 'holidayinn-route.png',
       markerIcon: 'holidayinn_busasset_163ppi-01.png',
@@ -183,6 +183,7 @@ Tracker.bootstrap = (function(exports) {
       stops: ["acc", "holiday"],
       shuttles: ['867844000477961']
     },
+    */
     {
       key: "sheraton",
       image: 'sheraton-route-2013.png',
@@ -204,7 +205,7 @@ Tracker.bootstrap = (function(exports) {
         }
       },
       stops: ["acc", "omnin", "omnis", "hilton", "sheraton"],
-      shuttles: ['23653453']
+      shuttles: ['867844000477961']
     },
     {
       key: "film1",
@@ -250,7 +251,7 @@ Tracker.bootstrap = (function(exports) {
         }
       },
       stops: ["acc", "hyatt", "palmer"],
-      shuttles: ['23653545']
+      shuttles: ['23653453']
     }
   ];
 
