@@ -32,6 +32,7 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
     this.setOverlay(content, streetMap);
     this.setShuttleStops(content, streetMap);
     this.setShuttleBusses(content, streetMap);
+    this.setUserLocation(streetMap);
 
     $('a').click(function() { return; });
     
@@ -87,6 +88,23 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
         streetMap: streetMap
       });
       childViews.pushObject(shuttleBusView);
+    });
+  },
+  setUserLocation: function(streetMap) {
+    navigator.geolocation.getCurrentPosition(function(userPosition) {
+      var position = new Tracker.maps.LatLng(userPosition.coords.latitude, 
+        userPosition.coords.longitude);
+      var marker = new Tracker.maps.Marker({
+        position: position,
+        map: streetMap
+      });
+
+      var infoWindow = new Tracker.maps.InfoWindow;
+
+      Tracker.maps.addListener(marker, "click", function() {
+        infoWindow.setContent("You are here. Hello!");
+        infoWindow.open(streetMap, marker);
+      });
     });
   }
 });

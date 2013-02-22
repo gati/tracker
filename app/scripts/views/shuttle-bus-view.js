@@ -29,8 +29,9 @@ Tracker.ShuttleBusView = Ember.View.extend({
   repositionMarket: function() {
     var marker = this.get("marker");
     var position = this.currentShuttleBusPosition();
-    console.log("setting position");
-    marker.setPosition(position);
+    
+    marker.setMap(null);
+    this.didInsertElement();
     //this.forceMarkerVisible();
   }.observes("currentPosition"),
   forceMarkerVisible: function() {
