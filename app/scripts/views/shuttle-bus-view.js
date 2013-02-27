@@ -1,8 +1,10 @@
 Tracker.ShuttleBusView = Ember.View.extend({
   //templateName: 'shuttle-route',
-  
+  init: function() {
+    this.markers = [];
+  },
   willDestroyElement: function() {
-    // remove gmap event bindings
+    
   },
   currentPositionBinding: "shuttleBus.currentPosition",
   currentShuttleBusPosition: function() {
@@ -16,7 +18,7 @@ Tracker.ShuttleBusView = Ember.View.extend({
     var streetMap = this.get("streetMap");
     var position = this.currentShuttleBusPosition();
 
-    this.set("marker", new Tracker.maps.HTMLMarker({
+    this.markers.push(new Tracker.maps.HTMLMarker({
         position: position,
         map: streetMap,
         content: '<div class="markerContainer"><img src="images/markers/darkbus.png"/></div>',
@@ -27,10 +29,11 @@ Tracker.ShuttleBusView = Ember.View.extend({
     //this.forceMarkerVisible();
   },
   repositionMarket: function() {
-    var marker = this.get("marker");
-    var position = this.currentShuttleBusPosition();
+    var markers = this.get("markers");
+    for(var i=0;i<markers.length;i++) {
+      markers[i].setMap(null);  
+    }
     
-    marker.setMap(null);
     this.didInsertElement();
     //this.forceMarkerVisible();
   }.observes("currentPosition"),

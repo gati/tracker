@@ -42,14 +42,29 @@ Tracker.Router = Em.Router.extend({
       shuttleRoute: Ember.Route.extend({
         route: '/shuttle-route/:key',
         connectOutlets: function(router, context) {
-          var collection = Tracker.store.shuttleRoutes;
-          var shuttleRoute = collection.findProperty("key", context.key);
-          var destination = shuttleRoute.get("destination");
+          var shuttleRoutes,
+            destination,
+            destinationName,
+            collection = Tracker.store.shuttleRoutes;
+
+          if(context.key === "all") {
+            shuttleRoutes = collection.filter(function(item) {
+              var section = Tracker.store.sections.findProperty("key", "interactive");
+              return section.get("routes").contains(item.get("key"));
+            });
+            destinationName = "All Routes";
+          }
+          else {
+            shuttleRoute = collection.findProperty("key", context.key);
+            shuttleRoutes = [shuttleRoute];
+            destination = shuttleRoute.get("destination");
+            destinationName = destination.get("name");
+          }
           
           Tracker.store.application.set("showBack", true);
-          Tracker.store.application.set("title", destination.get("name"));
+          Tracker.store.application.set("title", destinationName);
 
-          router.get('shuttleRouteController').set('content', shuttleRoute);
+          router.get('shuttleRouteController').set('content', shuttleRoutes);
           router.get('applicationController').connectOutlet('shuttleRoute');
         }
       }),

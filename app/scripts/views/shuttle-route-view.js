@@ -6,13 +6,14 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
     this.$().css({ width: "100%", height: $(window).height() + "px" });
   },
   willDestroyElement: function() {
-    // remove gmap event bindings
+    
   },
   didInsertElement: function () {
-    var content = this.get("controller.content");
+    var contents = this.get("controller.content");
+    var mapCenter = (contents.length > 1) ? Tracker.store.mapCenter : contents[0].mapCenter;
     var mapOptions = {
-      center: new Tracker.maps.LatLng(content.mapCenter.lat, 
-        content.mapCenter.lng),
+      center: new Tracker.maps.LatLng(mapCenter.lat,
+        mapCenter.lng),
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI:true,
@@ -28,11 +29,14 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
     var streetMap = new Tracker.maps.Map(this.$().get(0), mapOptions);
     //this.set('streetMap', streetMap); //save for future updations
 
-    this.setMapBindings(streetMap);
-    this.setOverlay(content, streetMap);
-    this.setShuttleStops(content, streetMap);
-    this.setShuttleBusses(content, streetMap);
-    this.setUserLocation(streetMap);
+    var that = this;
+    contents.forEach(function(content) {
+      that.setMapBindings(streetMap);
+      that.setOverlay(content, streetMap);
+      that.setShuttleStops(content, streetMap);
+      that.setShuttleBusses(content, streetMap);
+      that.setUserLocation(streetMap);
+    });
 
     $('a').click(function() { return; });
     

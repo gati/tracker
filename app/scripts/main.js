@@ -10,4 +10,9 @@ Tracker.settings = {
 };
 
 // Flat object where other components can stick models. Not Ember-Data/DS
-Tracker.store = {};
+Tracker.store = {
+  mapCenter: {
+    lat:30.269816,
+    lng:-97.742014
+  }
+};
