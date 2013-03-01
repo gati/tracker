@@ -122,6 +122,10 @@ Tracker.bootstrap = (function(exports) {
       locationKey: "att",
       image: 'att-route-2013.png',
       markerIcon: 'att_busasset_163ppi-01.png',
+      startDate: '2013-03-08',
+      endDate: '2013-03-12',
+      startTime: '08:00',
+      endTime: '19:00',
       mapCenter: {
         lat:30.275079,
         lng:-97.739997
@@ -144,6 +148,10 @@ Tracker.bootstrap = (function(exports) {
       image: 'hyattpalmer-route-2013.png',
       markerIcon: 'hyatt_busasset_163ppi-01.png',
       locationKey: "hyatt", 
+      startDate: '2013-03-08',
+      endDate: '2013-03-12',
+      startTime: '08:00',
+      endTime: '19:00',
       mapCenter: {
         lat:30.261588,
         lng:-97.746649
@@ -190,6 +198,10 @@ Tracker.bootstrap = (function(exports) {
       //image: "",
       markerIcon: 'sheraton_busasset_163ppi-01.png',
       locationKey: "sheraton",
+      startDate: '2013-03-08',
+      endDate: '2013-03-12',
+      startTime: '08:00',
+      endTime: '19:00',
       mapCenter: {
         lat:30.266110,
         lng:-97.739654
@@ -213,6 +225,10 @@ Tracker.bootstrap = (function(exports) {
       //image: "",
       markerIcon: 'sheraton_busasset_163ppi-01.png',
       locationKey: "film",
+      startDate: '2013-03-08',
+      endDate: '2013-03-12',
+      startTime: '08:00',
+      endTime: '19:00',
       mapCenter: {
         lat:30.264887,
         lng:-97.746649
@@ -236,6 +252,10 @@ Tracker.bootstrap = (function(exports) {
       //image: "",
       markerIcon: 'sheraton_busasset_163ppi-01.png',
       locationKey: "film",
+      startDate: '2013-03-13',
+      endDate: '2013-03-16',
+      startTime: '08:00',
+      endTime: '19:00',
       mapCenter: {
         lat:30.264887,
         lng:-97.746649

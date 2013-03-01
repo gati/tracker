@@ -75,7 +75,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   
 
 
-  data.buffer.push("<p class=\"primary-content\">The Hilton, Hilton Garden Inn, Palm Door and Palm Park are served from the Austin Convention Center and Hilton Courtyard Marriott stops. Please walk to one of those two locations, where you'll be able to catch a shuttle to your destination.</p>");
+  data.buffer.push("<p class=\"primary-content\">The Hilton, Hilton Garden Inn and SXSW Create venues are served from the Austin Convention Center and Hilton / Courtyard Marriott stops. Please walk to one of those two locations, where you'll be able to catch a shuttle to your destination.</p>");
 });
 
 Ember.TEMPLATES["section"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
@@ -107,7 +107,7 @@ function program3(depth0,data) {
   stack1 = {};
   hashTypes = {};
   stack1 = helpers.action.call(depth0, "doInfoRoute", {hash:stack1,contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
-  data.buffer.push(escapeExpression(stack1) + " class=\"has-children\">\n    Hilton, Hilton Garden Inn, Palm Door or Palm Park\n  </a>\n</nav>\n");
+  data.buffer.push(escapeExpression(stack1) + " class=\"has-children\">\n    Hilton, Hilton Garden Inn, SXSW Create\n  </a>\n</nav>\n");
   return buffer;}
 
   data.buffer.push("<nav class=\"table-view\">\n  ");

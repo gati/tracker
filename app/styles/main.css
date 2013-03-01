@@ -109,7 +109,7 @@ html{overflow-y:scroll;font-size:62.5%;background-color:#ccc;background-image:-w
 .table-view a.has-children.att{background:url("images/bg_rightarrow.png"),url("images/nav_icon_att.png");background-repeat:no-repeat,no-repeat;background-position:96% 50%,6px 3px}
 .table-view a.has-children.holiday{background:url("images/bg_rightarrow.png"),url("images/nav_icon_holiday.png");background-repeat:no-repeat,no-repeat;background-position:96% 50%,6px 3px}
 .table-view a.has-children.sheraton{background:url("images/bg_rightarrow.png"),url("images/nav_icon_sheraton.png");background-repeat:no-repeat,no-repeat;background-position:96% 50%,6px 3px}
-.modalBox{opacity:.8;background:#222;padding:10px 20px;color:#fff;position:absolute;font-family:Helvetica,Arial,sans-serif}
+.modalBox{opacity:.8;background:#222;padding:10px 20px;color:#fff;position:absolute;font-family:Helvetica,Arial,sans-serif;z-index:9}
 .modalBox -webkit-border-radius args -moz-border-radius args -ms-border-radius args -o-border-radius args{border-radius:8px}
 .modalBox.alert{width:70%;top:20%;left:15%}
 .modalBox.header{right:10px;top:41px;z-index:9;display:none;max-width:30%}

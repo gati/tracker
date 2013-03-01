@@ -32,11 +32,20 @@ Tracker.Router = Em.Router.extend({
           var collection = router.getPath('homeController.content');
           var section = collection.findProperty("key", context.key);
 
-          Tracker.store.application.set("showBack", true);
-          Tracker.store.application.set("title", "Where are you?");
+          if(context.key === "film") {
+            Ember.run.next(function() {
+              var shuttleRouteKey = "film1";
+              history.pushState(null, "", "#home");
+              router.transitionTo('shuttleRoute', {key: shuttleRouteKey});
+            });
+          }
+          else {
+            Tracker.store.application.set("showBack", true);
+            Tracker.store.application.set("title", "Where are you?");
 
-          router.get('sectionController').set('content', section);
-          router.get('applicationController').connectOutlet('section');
+            router.get('sectionController').set('content', section);
+            router.get('applicationController').connectOutlet('section');
+          }
         }
       }),
       shuttleRoute: Ember.Route.extend({

@@ -6,7 +6,7 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
     this.$().css({ width: "100%", height: $(window).height() + "px" });
   },
   willDestroyElement: function() {
-    
+
   },
   didInsertElement: function () {
     var contents = this.get("controller.content");
@@ -38,15 +38,19 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
       that.setUserLocation(streetMap);
     });
 
+    if(contents.length === 1) {
+      this.setActiveModal(contents[0], streetMap);
+    }
+
     $('a').click(function() { return; });
-    
+
   },
   setMapBindings: function(streetMap) {
-    Tracker.maps.addListener(streetMap, "click", function (e) { 
+    Tracker.maps.addListener(streetMap, "click", function (e) {
       console.log('lat:'+e.latLng.lat().toFixed(6));
       console.log('lng:'+e.latLng.lng().toFixed(6));
     });
-  
+
     Tracker.maps.addListener(streetMap, 'zoom_changed', function() {
       var currentZoom = streetMap.getZoom();
       if(currentZoom !== 15) {
@@ -55,9 +59,9 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
     });
   },
   setOverlay: function(content, streetMap) {
-    var swBound = new Tracker.maps.LatLng(content.overlayBounds.sw.lat, 
+    var swBound = new Tracker.maps.LatLng(content.overlayBounds.sw.lat,
       content.overlayBounds.sw.lng);
-    var neBound = new Tracker.maps.LatLng(content.overlayBounds.ne.lat, 
+    var neBound = new Tracker.maps.LatLng(content.overlayBounds.ne.lat,
       content.overlayBounds.ne.lng);
     var bounds = new Tracker.maps.LatLngBounds(swBound, neBound);
 
@@ -75,7 +79,7 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
         icon: "images/transparent-map-icon.png"
       });
 
-      var infoWindow = new Tracker.maps.InfoWindow;
+      var infoWindow = new Tracker.maps.InfoWindow();
 
       Tracker.maps.addListener(marker, "click", function() {
         infoWindow.setContent(shuttleStop.get("name"));
@@ -96,19 +100,36 @@ Tracker.ShuttleRouteView = Ember.ContainerView.extend({
   },
   setUserLocation: function(streetMap) {
     navigator.geolocation.getCurrentPosition(function(userPosition) {
-      var position = new Tracker.maps.LatLng(userPosition.coords.latitude, 
+      var position = new Tracker.maps.LatLng(userPosition.coords.latitude,
         userPosition.coords.longitude);
       var marker = new Tracker.maps.Marker({
         position: position,
         map: streetMap
       });
 
-      var infoWindow = new Tracker.maps.InfoWindow;
+      var infoWindow = new Tracker.maps.InfoWindow();
 
       Tracker.maps.addListener(marker, "click", function() {
         infoWindow.setContent("You are here. Hello!");
         infoWindow.open(streetMap, marker);
       });
     });
+  },
+  setActiveModal: function(content, streetMap) {
+    var message;
+    if(content.get("isActive")) {
+      if(!content.get("isInService")) {
+        // shuttle only runs during certain times
+        message = "This route runs from " + content.get("activeTimes") + " daily.";
+        this.populateModal(message);
+      }
+    }
+    else {
+      message = "This route is active from " + content.get("activeDates");
+      this.populateModal(message);
+    }
+  },
+  populateModal: function(message) {
+    this.$().prepend('<div class="modalBox alert">'+message+'</div>');
   }
 });
