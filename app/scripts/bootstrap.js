@@ -13,9 +13,46 @@ Tracker.bootstrap = (function(exports) {
     }
   ];
 
+
   exports.shuttles = [
     {
-      deviceId: '867844000377625'
+      deviceId: '23653545'
+    },
+    {
+      deviceId: '23653453'
+    },
+    {
+      deviceId: '23653503'
+    },
+    {
+      deviceId: '26645092'
+    },
+    {
+      deviceId: '26645100'
+    },
+    {
+      deviceId: '26905231'
+    },
+    {
+      deviceId: '26905249'
+    },
+    {
+      deviceId: '26905298'
+    },
+    {
+      deviceId: '26905280'
+    },
+    {
+      deviceId: '26645134'
+    },
+    {
+      deviceId: '26645142'
+    },
+    {
+      deviceId: '26905256'
+    },
+    {
+      deviceId: '26905264'
     },
     {
       deviceId: '867844000384928'
@@ -24,12 +61,27 @@ Tracker.bootstrap = (function(exports) {
       deviceId: '867844000477961'
     },
     {
-      deviceId: '23653453'
+      deviceId: '867844000377625'
     },
     {
-      deviceId: '23653545'
+      deviceId: '867844000382419'
+    },
+    {
+      deviceId: '867844000382245'
+    },
+    {
+      deviceId: '867844000380025'
+    },
+    {
+      deviceId: '867844000383698'
+    },
+    {
+      deviceId: '867844000469349'
+    },
+    {
+      deviceId: '867844000381999'
     }
-  ];
+  ];      
 
   exports.stops = [
     {
@@ -88,7 +140,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.258739',
         lng: '-97.747335'
       },
-      name: 'Hyatt'
+      name: 'Hyatt / Long Ctr / Palmer'
     },
     {
       key: "palmer",
@@ -104,7 +156,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.270971',
         lng: '-97.734717'
       },
-      name: 'Sheraton'
+      name: 'Omni / Sheraton'
     },
     {
       key: "film",
@@ -123,7 +175,7 @@ Tracker.bootstrap = (function(exports) {
       image: 'att-route-2013.png',
       markerIcon: 'att_busasset_163ppi-01.png',
       startDate: '2013-03-08',
-      endDate: '2013-03-12',
+      endDate: '2013-03-11',
       startTime: '08:00',
       endTime: '19:00',
       mapCenter: {
@@ -141,7 +193,11 @@ Tracker.bootstrap = (function(exports) {
         }
       },
       stops: ["acc", "omnin", "att", "omnis", "hilton"],
-      shuttles: ['867844000377625']
+      shuttles: [
+        '867844000383698',
+        '867844000469349',
+        '867844000381999'
+      ]
     },
     {
       key: "hyatt",
@@ -149,7 +205,7 @@ Tracker.bootstrap = (function(exports) {
       markerIcon: 'hyatt_busasset_163ppi-01.png',
       locationKey: "hyatt", 
       startDate: '2013-03-08',
-      endDate: '2013-03-12',
+      endDate: '2013-03-11',
       startTime: '08:00',
       endTime: '19:00',
       mapCenter: {
@@ -167,7 +223,14 @@ Tracker.bootstrap = (function(exports) {
         }
       },
       stops: ["acc", "hyatt", "palmer"],
-      shuttles: ['867844000384928']
+      shuttles: [
+        '23653545', 
+        '23653453', 
+        '23653503', 
+        '26645092', 
+        '26645100', 
+        '26905231'
+      ]
     },
     /*{
       key: "holiday",
@@ -199,7 +262,7 @@ Tracker.bootstrap = (function(exports) {
       markerIcon: 'sheraton_busasset_163ppi-01.png',
       locationKey: "sheraton",
       startDate: '2013-03-08',
-      endDate: '2013-03-12',
+      endDate: '2013-03-11',
       startTime: '08:00',
       endTime: '19:00',
       mapCenter: {
@@ -217,7 +280,14 @@ Tracker.bootstrap = (function(exports) {
         }
       },
       stops: ["acc", "omnin", "omnis", "hilton", "sheraton"],
-      shuttles: ['867844000477961']
+      shuttles: [
+        '867844000384928',
+        '867844000477961',
+        '867844000377625',
+        '867844000382419',
+        '867844000382245',
+        '867844000380025'
+      ]
     },
     {
       key: "film1",
@@ -226,7 +296,7 @@ Tracker.bootstrap = (function(exports) {
       markerIcon: 'sheraton_busasset_163ppi-01.png',
       locationKey: "film",
       startDate: '2013-03-08',
-      endDate: '2013-03-12',
+      endDate: '2013-03-11',
       startTime: '08:00',
       endTime: '19:00',
       mapCenter: {
@@ -244,7 +314,15 @@ Tracker.bootstrap = (function(exports) {
         }
       },
       stops: ["acc", "hyatt", "palmer"],
-      shuttles: ['23653545']
+      shuttles: [
+        '26905249',
+        '26905298',
+        '26905280',
+        '26645134',
+        '26645142',
+        '26905256',
+        '26905264'
+      ]
     },
     {
       key: "film2",
