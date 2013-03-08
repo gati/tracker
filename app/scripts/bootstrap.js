@@ -4,7 +4,7 @@ Tracker.bootstrap = (function(exports) {
     {
       name:"Interactive", 
       key: "interactive",
-      routes: ["att", "hyatt", "sheraton"]
+      routes: ["att", "hyatt", "sheraton", "all"]
     },
     {
       name: "Film", 
@@ -165,10 +165,46 @@ Tracker.bootstrap = (function(exports) {
         lng: '-97.747335'
       },
       name: 'Film'
+    },
+    {
+      key: "all",
+      location: {
+        lat: '30.258739',
+        lng: '-97.747335'
+      },
+      name: 'Convention Ctr'
     }
   ];
 
   exports.routes = [
+    {
+      key: "all",
+      locationKey: "all",
+      startDate: '2013-03-08',
+      endDate: '2013-03-11',
+      startTime: '08:00',
+      endTime: '19:00',
+      mapCenter: {
+        lat:30.275079,
+        lng:-97.739997
+      },
+      overlayBounds: {
+        sw: {
+          lat:30.263330,
+          lng:-97.746391
+        },
+        ne: {
+          lat:30.281491,
+          lng:-97.735448
+        }
+      },
+      stops: ["acc", "omnin", "att", "omnis", "hilton"],
+      shuttles: [
+        '867844000383698',
+        '867844000469349',
+        '867844000381999'
+      ]
+    },
     {
       key: "att",
       locationKey: "att",
