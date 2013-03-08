@@ -35,7 +35,8 @@ Tracker.Router = Em.Router.extend({
           if(context.key === "film") {
             Ember.run.next(function() {
               var shuttleRouteKey = "film1";
-              history.pushState(null, "", "#home");
+              //history.pushState(null, "", "#home");
+              window.routeHome = true;
               router.transitionTo('shuttleRoute', {key: shuttleRouteKey});
             });
           }

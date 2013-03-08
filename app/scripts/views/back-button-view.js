@@ -3,6 +3,12 @@ Tracker.BackButtonView = Ember.View.extend({
   tagName: "a",
   classNames: ["header-btn-left", "black"],
   click: function(e) {
-    history.back();
+    if(window.routeHome) {
+      window.routeHome = false;
+      window.location.href = "/";
+    }
+    else {
+      history.back();
+    }
   }
 })
