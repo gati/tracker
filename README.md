@@ -1,19 +1,8 @@
 # Shuttle Tracker client for SXSW 2013
 
-## Setup
-#### Open terminal and run...
-* `sudo npm install -g grunt`
-* `sudo npm install -g typescript`
-* `npm install`
+A web app that let attendees at the 2013 SXSW Film and Interactive conferences 
+track conference shuttles in real time. Built with 
+[Ember.js](https://github.com/emberjs/ember.js/).
 
-## Running the app
-#### Open terminal and run...
-* `yeoman server:app`
-
-## Tools / Frameworks
-* Stylus - http://learnboost.github.com/stylus/
-* TypeScript - http://typescriptlang.org/
-* Yeoman - http://yeoman.io
-
-## Examples
-* To Do MVC (Backbone.js + TypeScript) - http://typescript.codeplex.com/SourceControl/changeset/view/258e00903a9e#samples/todomvc/js/todos.ts
+This app was included in the official 2013 SXSWGo mobile application and was 
+displayed at digital signage at venues across the festival.

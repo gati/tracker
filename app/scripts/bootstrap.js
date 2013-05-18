@@ -55,6 +55,21 @@ Tracker.bootstrap = (function(exports) {
       deviceId: '26905264'
     },
     {
+      deviceId: '26645118'
+    },
+    {
+      deviceId: '26645084'
+    },
+    {
+      deviceId: '26905306'
+    },
+    {
+      deviceId: '26905272'
+    },
+    {
+      deviceId: '26905223'
+    },
+    {
       deviceId: '867844000384928'
     },
     {
@@ -140,7 +155,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.258739',
         lng: '-97.747335'
       },
-      name: 'Hyatt / Long Ctr / Palmer'
+      name: 'Hyatt/Long/Palmer'
     },
     {
       key: "palmer",
@@ -156,7 +171,7 @@ Tracker.bootstrap = (function(exports) {
         lat: '30.270971',
         lng: '-97.734717'
       },
-      name: 'Omni / Sheraton'
+      name: 'Omni/Sheraton'
     },
     {
       key: "film",
@@ -232,7 +247,10 @@ Tracker.bootstrap = (function(exports) {
       shuttles: [
         '867844000383698',
         '867844000469349',
-        '867844000381999'
+        '867844000381999',
+        '26645084',
+        '26905306',
+        '26905272'
       ]
     },
     {
@@ -265,7 +283,8 @@ Tracker.bootstrap = (function(exports) {
         '23653503', 
         '26645092', 
         '26645100', 
-        '26905231'
+        '26645118',
+        '26905223'
       ]
     },
     /*{
@@ -333,8 +352,8 @@ Tracker.bootstrap = (function(exports) {
       locationKey: "film",
       startDate: '2013-03-08',
       endDate: '2013-03-11',
-      startTime: '08:00',
-      endTime: '19:00',
+      startTime: '10:00',
+      endTime: '02:30',
       mapCenter: {
         lat:30.264887,
         lng:-97.746649
@@ -368,8 +387,8 @@ Tracker.bootstrap = (function(exports) {
       locationKey: "film",
       startDate: '2013-03-13',
       endDate: '2013-03-16',
-      startTime: '08:00',
-      endTime: '19:00',
+      startTime: '10:00',
+      endTime: '02:30',
       mapCenter: {
         lat:30.264887,
         lng:-97.746649
@@ -385,7 +404,15 @@ Tracker.bootstrap = (function(exports) {
         }
       },
       stops: ["acc", "hyatt", "palmer"],
-      shuttles: ['23653453']
+      shuttles: [
+        '26905249',
+        '26905298',
+        '26905280',
+        '26645134',
+        '26645142',
+        '26905256',
+        '26905264'
+      ]
     }
   ];
 

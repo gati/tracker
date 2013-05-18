@@ -25,8 +25,18 @@ Tracker.ShuttleRoute = Ember.Object.extend({
     var now = parseInt(moment().format("H"), 10);
     var isInService = false;
 
-    if(now >= startTime && now <= endTime) {
+    if(endTime >= 12 && now >= startTime && now <= endTime) {
       isInService = true;
+    }
+    else if(endTime < 12) {
+      // ends in AM, so anything in PM that's after start time
+      // is fair game
+      if(now > 12 && now > startTime) {
+        isInService = true;
+      }
+      else if(now < 12 && (now < endTime || now > startTime)) {
+        isInService = true;
+      }
     }
     
     return isInService;
@@ -42,7 +52,7 @@ Tracker.ShuttleRoute = Ember.Object.extend({
   activeTimes: function() {
     var startTime = moment("2013-01-01 " + this.get("startTime"));
     var endTime = moment("2013-01-01 " + this.get("endTime"));
-    var dateFormat = "hA";
+    var dateFormat = "h:mm A";
     
     return startTime.format(dateFormat) + " to " + endTime.format(dateFormat);
   }.property('startTime', 'endTime')
